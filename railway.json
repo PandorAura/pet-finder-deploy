@@ -1,6 +1,11 @@
 {
-  "deploy": {
-    "strategy": "docker-compose",
-    "enabled": true
-  }
+  "builds": [
+    {
+      "src": "docker-compose.yml", 
+      "use": "docker-compose",
+      "config": {
+        "disableNixpacks": true
+      }
+    }
+  ]
 }
