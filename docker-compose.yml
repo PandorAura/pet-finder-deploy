@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: 
+      context: https://github.com/PandorAura/pet-finder-FE
+      dockerfile: Dockerfile  # Path inside FE repo
+    ports:
+      - "4000:80"  # Different port than production
+
+  backend:
+    build: 
+      context: https://github.com/PandorAura/pet-finder-BE
+      dockerfile: Dockerfile  # Path inside BE repo
+    ports:
+      - "5000:3000"  # Different port than production
