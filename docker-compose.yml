@@ -2,15 +2,17 @@ version: '3.8'
 
 services:
   frontend:
-    build: 
-      context: https://github.com/PandorAura/pet-finder-FE
-      dockerfile: Dockerfile  # Path inside FE repo
+    build:
+      context: .
+      dockerfile: Dockerfile-FE  # Renamed for clarity
     ports:
-      - "4000:80"  # Different port than production
+      - "4000:80"
+    environment:
+      - BACKEND_URL=http://backend:5000
 
   backend:
-    build: 
-      context: https://github.com/PandorAura/pet-finder-BE
-      dockerfile: Dockerfile  # Path inside BE repo
+    build:
+      context: .
+      dockerfile: Dockerfile-BE  # Renamed for clarity
     ports:
-      - "5000:3000"  # Different port than production
+      - "5000:3000"
